@@ -45,4 +45,4 @@ Open issue link with Android Orchestrator :https://issuetracker.google.com/issue
 - **SonarQube:** **_gradlew sonarqube -Dsonar.host.url=http://localhost:9000/_**
 > Results can be viewed at localhost:9000 after succesful build.
 - **Jacoco:** **_gradlew clean test jacocoTestReport_**
-> This report can be viewed in app/build/reports/
+> Since Jacoco won't work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at $project.buildDir/reports/tests/testDebugUnitTest/index.html
