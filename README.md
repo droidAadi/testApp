@@ -1,6 +1,6 @@
 # Most Popular Articles App
 This application displays the Most Popular Articles on NY Times using the NY Times Most Popular Articles API.
-It is based on MVVM pattern and utilizes Retrofit library for network operation. It also includes the static code analyser tool i.e. **Lint** and **SonarQube** configuration so as to keep a constant check on code quality.
+It is based on MVVM pattern and utilizes Retrofit library for network operation. It also includes the static code analyser tool i.e. **Lint** and **SonarQube** configuration and **Jacoco** so as to keep a constant check on code quality and get the code coverage report as well.
 
 ## Prerequisites
 - Android Studio 3.x version
@@ -16,7 +16,7 @@ It is based on MVVM pattern and utilizes Retrofit library for network operation.
 
   > Use **git clone** https://github.com/droidAadi/testApp.git from terminal/cmd window.
   
-- Once you import, the project building will start automatically. Alternatively, you can use following command as well to build the project manuallly from command line/terminal window.
+- Once you import, the project build will start automatically. Alternatively, you can use following command as well to build the project manuallly from command line/terminal window.
 
   > **gradlew build**
   
@@ -58,7 +58,7 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
   
   > Since Jacoco might not work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at **$project.buildDir/reports/tests/testDebugUnitTest/index.html**
   
-**Also, the jacoco script and sonar script can be run together as well, so that test coverage report gets pushed along with sonarqube results in one go.**
+**(Recommended) Also, the jacoco script and sonar script can be run together as well, so that test coverage report gets pushed along with sonarqube results in one go.**
   
   > This can be done via **_gradlew clean jacocoTestReport sonarqube_**
   
