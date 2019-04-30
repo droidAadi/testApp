@@ -58,10 +58,10 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
   
   > Since Jacoco might not work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at **$project.buildDir/reports/tests/testDebugUnitTest/index.html**
   
-Also, the jacoco script and sonar script can be run together as well, so that test coverage report gets pushed along with sonarqube results in one go.
+**Also, the jacoco script and sonar script can be run together as well, so that test coverage report gets pushed along with sonarqube results in one go.**
   
   > This can be done via **_gradlew clean jacocoTestReport sonarqube_**
   
   
 
-**NOTE: Jacoco may or may not work with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report might not get generated and pushed onto SonarQube server.**
+**_NOTE: Jacoco may or may not work with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report might not get generated and pushed onto SonarQube server._**
