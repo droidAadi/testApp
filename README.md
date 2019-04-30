@@ -32,7 +32,7 @@ at: https://developer.nytimes.com/get-started,
   **a) script_lint.gradle** - This contains script for running lint tool via **gradlew command**. We have another folder in root directory with the name lint which contains a file named **rules_line.xml**. This file can be used to customize the existing lint rules.
 If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well depending upon your requirement.
 
-  **b) script_sonar.gradle**- This script triggers the sonar-qube report generation. Complete sonar report is pushed to your Sonar server (which is a localhost:9000 for this project).
+  **b) script_sonar.gradle**- This script triggers the sonar-qube report generation. Complete sonar report is pushed to your Sonar server (which is a localhost:9000 for this project). You can also view code coverage report on SonarQube Server.
 
   **c) script_jacoco.gradle** - This contains the jacoco configuration for tests coverage calculation.
 
