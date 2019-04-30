@@ -24,14 +24,20 @@ at: https://developer.nytimes.com/get-started,
 ## Code Quality Setup
 - We have added three scripts (under scripts folder) in this project which cater to different needs :-
 
-a) script_lint.gradle - This contains lint configuration for now. If reqiured, you can add CheckStyle, PMD, findbugs configuration here as well. We have another folder in root directory with the name lint which contains a file named 
-rules_line.xml. This file can be used to customize the existing lint rules.
+  **a) script_lint.gradle** - This contains script for running lint tool via **gradlew command**. We have another folder in root directory with the name lint which contains a file named **rules_line.xml**. This file can be used to customize the existing lint rules.
+If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well depending upon your requirement.
 
-b) script_jacoco.gradle - This contains the jacoco configuration for tests coverage calculation. [NOTE: Jacoco has stopped working with Android 3.0+ versions]
+  **b) script_sonar.gradle**- This script triggers the sonar-qube report generation. Complete sonar report is pushed to your Sonar server (which is a localhost:9000 for this project).
 
-c) script_sonar.gradle- This scrip triggers the sonar-qube report generation.
+  **c) script_jacoco.gradle** - This contains the jacoco configuration for tests coverage calculation.
+
+**NOTE: Jacoco has stopped working with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report will not be generated and pushed onto SonarQube server.
+Open issue link with Android Orchestrator :https://issuetracker.google.com/issues/72758547**
 
 ## Commands to Run the scripts
-- Lint: gradlew lint. After successful execution of the command, the lint report can be viewed in $project.buildDir/outputs/lint/lint.html
-- SonarQube: gradlew sonarqube -Dsonar.host.url=http://localhost:9000/
-- Jacoco: gradlew clean connectedAndroidTest test jacocoTestReport. This report can be viewed in app/build/reports/
+- **Lint**: **_gradlew lint_** 
+> After successful execution of the command, the lint report can be viewed in $project.buildDir/outputs/lint/lint.html
+- **SonarQube:** **_gradlew sonarqube -Dsonar.host.url=http://localhost:9000/_**
+> Results can be viewed at localhost:9000 after succesful build.
+- **Jacoco:** **_gradlew clean test jacocoTestReport_**
+> This report can be viewed in app/build/reports/
