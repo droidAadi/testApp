@@ -57,6 +57,7 @@ public class MostViewedArticleFragment extends Fragment implements RecyclerViewL
         mRecylerView.setItemAnimator(new DefaultItemAnimator());
         mProgressDialog = new ProgressDialog(mMainActivity);
         mProgressDialog.setTitle("Please Wait");
+        mProgressDialog.setCancelable(false);
         return rootView;
     }
 
