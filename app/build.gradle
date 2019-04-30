@@ -32,17 +32,12 @@ android {
     }
 
     testOptions {
-
-        // Following code is a workaround to generate the test-coverage but it also has known issue
-        // (Refer ReadMe).
-        execution 'ANDROID_TEST_ORCHESTRATOR'
         animationsDisabled true
-
         unitTests {
             includeAndroidResources = true
         }
+        unitTests.returnDefaultValues = true
         //Following code is now redundant with Android Gradle Plgugin 3.x + versions.
-//        unitTests.returnDefaultValues = true
 //        unitTests.all {
 //            jacoco {
 //                includeNoLocationClasses = true
@@ -76,4 +71,5 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     androidTestImplementation "com.android.support.test:rules:1.0.2"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
 }
