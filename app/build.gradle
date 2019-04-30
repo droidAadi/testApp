@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply from: "$project.rootDir/scripts/script_lint.gradle"
 apply from: "$project.rootDir/scripts/script_sonar.gradle"
+apply from: "$project.rootDir/scripts/script_jacoco.gradle"
 
 android {
     compileSdkVersion 28
@@ -10,22 +11,41 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            testCoverageEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
 
-//    lintOptions {
-//        abortOnError false
-//    }
+    project.gradle.taskGraph.whenReady {
+        connectedDebugAndroidTest {
+            ignoreFailures = true
+        }
+    }
 
-//    dataBinding {
-//        enabled = true;
-//    }
+    testOptions {
+
+//        execution 'ANDROID_TEST_ORCHESTRATOR'
+//        animationsDisabled true
+//
+//        unitTests {
+//            includeAndroidResources = true
+//        }
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
 }
 
 def API_SECRET_KEY = '"' + apiSecretProp + '"' ?: '"Define API Secret key"';
@@ -52,4 +72,5 @@ dependencies {
     def lifecycle_version = "1.1.1"
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    androidTestImplementation "com.android.support.test:rules:1.0.2"
 }

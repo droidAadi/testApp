@@ -1,5 +1,6 @@
 package com.test.view;
 
+import android.app.ProgressDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -31,6 +32,7 @@ public class MostViewedArticleFragment extends Fragment implements RecyclerViewL
     private MostViewedArticleAdapter mMostViewedArticleAdapter;
     private FragmentListener mFragmentListener;
 
+    private ProgressDialog mProgressDialog;
 
     @Override
     public void onAttach(Context context) {
@@ -53,6 +55,8 @@ public class MostViewedArticleFragment extends Fragment implements RecyclerViewL
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mMainActivity);
         mRecylerView.setLayoutManager(layoutManager);
         mRecylerView.setItemAnimator(new DefaultItemAnimator());
+        mProgressDialog = new ProgressDialog(mMainActivity);
+        mProgressDialog.setTitle("Please Wait");
         return rootView;
     }
 
@@ -78,11 +82,15 @@ public class MostViewedArticleFragment extends Fragment implements RecyclerViewL
 
 
     private void observeViewModel(ArticleViewModel articleViewModel) {
+        mProgressDialog.show();
         articleViewModel.getArticleListLiveData().observe(this,
                 new Observer<ArticleListPojo>() {
                     @Override
                     public void onChanged(@Nullable ArticleListPojo articleListPojo) {
                         if (articleListPojo != null) {
+                            if(mProgressDialog != null && mProgressDialog.isShowing()){
+                                mProgressDialog.dismiss();
+                            }
                             setAdapter(articleListPojo.getArticleList());
                         }
                     }
@@ -92,5 +100,12 @@ public class MostViewedArticleFragment extends Fragment implements RecyclerViewL
     @Override
     public void onItemClicked(final int position) {
         mFragmentListener.onItemClick(position);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mProgressDialog.cancel();
+        mProgressDialog = null;
     }
 }
