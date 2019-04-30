@@ -1,7 +1,6 @@
 # Most Popular Articles App
 This application displays the Most Popular Articles on NY Times using the NY Times Most Popular Articles API.
-It is based on MVVM pattern and utilizes Retrofit for network operation.
-
+It is based on MVVM pattern and utilizes Retrofit library for network operation. It also includes the static code analyser tool i.e. **Lint** and **SonarQube** configuration so as to keep a constant check on code quality.
 
 ## Prerequisites
 - Android Studio installation
