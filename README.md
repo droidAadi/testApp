@@ -41,8 +41,8 @@ Open issue link with Android Orchestrator :https://issuetracker.google.com/issue
 
 ## Commands to Run the scripts
 - **Lint**: **_gradlew lint_** 
-> After successful execution of the command, the lint report can be viewed in $project.buildDir/outputs/lint/lint.html
+> After successful execution of the command, the lint report can be viewed at **$project.buildDir/outputs/lint/lint.html**
 - **SonarQube:** **_gradlew sonarqube -Dsonar.host.url=http://localhost:9000/_**
 > Results can be viewed at localhost:9000 after succesful build.
 - **Jacoco:** **_gradlew clean test jacocoTestReport_**
-> Since Jacoco won't work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at $project.buildDir/reports/tests/testDebugUnitTest/index.html
+> Since Jacoco won't work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at **$project.buildDir/reports/tests/testDebugUnitTest/index.html**
