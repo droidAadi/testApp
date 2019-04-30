@@ -36,13 +36,13 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
 
   **c) script_jacoco.gradle** - This contains the jacoco configuration for tests coverage calculation.
 
-**NOTE: Jacoco has stopped working with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report will not be generated and pushed onto SonarQube server.
-Open issue link with Android Orchestrator :https://issuetracker.google.com/issues/72758547**
+**NOTE: Jacoco has stopped working with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report might not get generated and pushed onto SonarQube server.
 
 ## Commands to Run the scripts
-- **Lint**: **_gradlew lint_** 
+- **Lint**: **_gradlew clean lint_** 
 > After successful execution of the command, the lint report can be viewed at **$project.buildDir/outputs/lint/lint.html**
 - **SonarQube:** **_gradlew sonarqube -Dsonar.host.url=http://localhost:9000/_**
 > Results can be viewed at localhost:9000 after succesful build.
-- **Jacoco:** **_gradlew clean test jacocoTestReport_**
+- **Jacoco:** **_gradlew clean test createDebugCoverageReport jacocoTestReport_**
+> Report gets generated at **$project.buildDir/outputs/reports/coverage/debug/index.html**
 > Since Jacoco won't work properly with Android Gradle Plugin 3.x versions, you can manually check if the unit-test cases are passing or failing at **$project.buildDir/reports/tests/testDebugUnitTest/index.html**
