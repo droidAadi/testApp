@@ -15,9 +15,9 @@ sonarqube {
         property "sonar.sources", "src/main/java"
         property "sonar.tests", "src/test/java, src/androidTest/java"
 
-        //property "sonar.jacoco.reportPaths", "$project.buildDir/jacoco/testDebugUnitTest.exec , "
-        //property "sonar.java.coveragePlugin", "jacoco"
-       // property "sonar.junit.reportsPath", "$project.buildDir/reports/test/testDebugUnitTest"
+        property "sonar.jacoco.reportPaths", "$project.buildDir/jacoco/testDebugUnitTest.exec"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.junit.reportsPath", "$project.buildDir/reports/jacoco/tests/testDebugUnitTest/"
         property "sonar.android.lint.report", "$project.buildDir/outputs/lint/lint.html"
     }
 }
