@@ -52,7 +52,7 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
 
   **c) script_jacoco.gradle** - This contains the jacoco configuration for tests coverage calculation.
   
-  > This script can be run individually via **_gradlew clean test createDebugCoverageReport jacocoTestReport_**. **_(For this to run, emulator/device must be connected and up & running)
+  > This script can be run individually via **_gradlew clean test createDebugCoverageReport jacocoTestReport_**. **_(For this to run, emulator/device must be connected and up & running)_**
   
   > Report gets generated at **$project.buildDir/outputs/reports/coverage/debug/index.html**. 
   
@@ -60,6 +60,6 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
   
 **Also, the jacoco script and sonar script can be run together as well, so that test coverage report gets pushed along with sonarqube results in one go.**
   
-  > This can be done via **_gradlew clean jacocoTestReport sonarqube_** **_(For this to run, emulator/device must be connected and up & running).
+  > This can be done via **_gradlew clean jacocoTestReport sonarqube_** **_(For this to run, emulator/device must be connected and up & running)_**
 
 **_NOTE: Jacoco may or may not work with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report might not get generated and pushed onto SonarQube server._**
