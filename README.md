@@ -13,11 +13,17 @@ at: https://developer.nytimes.com/get-started,
 
 ## Getting Started
 - Clone the reository from the given URL and import the project in Android Studio.
+
   > Use **git clone** https://github.com/droidAadi/testApp.git from terminal/cmd window.
+  
 - Add the obtained API key in **gradle.properties** file 
+
   > **apiSecretProp = YOUR_API_KEY**
+  
 - Build and Run the application on Emulator or Device.
+
 - If you face any issues while running it from Android Studio, you can generate the apk manually via following command and install it on the device/emulator via adb command from command line tools.
+
   > **Build -> Build Bundle/APK -> Build APK.**
 
 ## Code Quality Setup
