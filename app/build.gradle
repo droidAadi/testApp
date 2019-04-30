@@ -33,18 +33,21 @@ android {
 
     testOptions {
 
-//        execution 'ANDROID_TEST_ORCHESTRATOR'
-//        animationsDisabled true
-//
-//        unitTests {
-//            includeAndroidResources = true
-//        }
-        unitTests.returnDefaultValues = true
-        unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
+        // Following code is a workaround to generate the test-coverage but it also has known issue
+        // (Refer ReadMe).
+        execution 'ANDROID_TEST_ORCHESTRATOR'
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
         }
+        //Following code is now redundant with Android Gradle Plgugin 3.x + versions.
+//        unitTests.returnDefaultValues = true
+//        unitTests.all {
+//            jacoco {
+//                includeNoLocationClasses = true
+//            }
+//        }
     }
 }
 

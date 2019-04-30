@@ -5,7 +5,7 @@ jacoco {
     reportsDir = file("${buildDir}/reports/jacoco") // this is the default
 }
 
-
+//Workaround as it won't work inside Android DSL block in app/build.gradle
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
 }
