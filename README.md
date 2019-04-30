@@ -64,4 +64,5 @@ If reqiured, you can add CheckStyle, PMD, findbugs scripts here as well dependin
   
   > This can be done via **_gradlew clean jacocoTestReport sonarqube_** **_(For this to run, emulator/device must be connected and up & running)_**
 
+
 **_NOTE: Jacoco may or may not work with Android Gradle plugin 3.x versions. Due to this, you might encounter issues while running the jacoco script. Also, due to this reason, the coverage report might not get generated and pushed onto SonarQube server._**
