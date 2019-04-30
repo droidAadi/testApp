@@ -24,7 +24,7 @@ public class ActivityTest {
 
     @Test
     public void checkIfProgressDialogIsDisplayed() {
-        // Type text and then press the button.
+        // Check if progress dialog is being displayed or not on app launch.
         Espresso.onView(withText("Please Wait")).check(matches(isDisplayed()));
     }
 }
